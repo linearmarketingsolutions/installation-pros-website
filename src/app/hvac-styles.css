@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Installation Pros Brand - Modernized from Logo */
+:root {
+  /* Logo-Based Brand Colors */
+  --brand-black: 17, 17, 17;
+  --brand-white: 255, 255, 255;
+  --brand-gray-50: 250, 250, 250;
+  --brand-gray-100: 245, 245, 245;
+  --brand-gray-200: 229, 229, 229;
+  --brand-gray-300: 212, 212, 212;
+  --brand-gray-400: 163, 163, 163;
+  --brand-gray-500: 115, 115, 115;
+  --brand-gray-600: 82, 82, 82;
+  --brand-gray-700: 64, 64, 64;
+  --brand-gray-800: 38, 38, 38;
+  --brand-gray-900: 23, 23, 23;
+  
+  /* Accent - Tool Steel Blue */
+  --brand-primary: 30, 58, 138;
+  --brand-primary-light: 59, 130, 246;
+  --brand-primary-dark: 23, 37, 84;
+  
+  /* Accent - Construction Orange */
+  --brand-accent: 234, 88, 12;
+  --brand-accent-light: 251, 146, 60;
+  
+  /* Success/Trust Green */
+  --brand-success: 22, 163, 74;
+}
+
+/* Typography - Modern Bold */
+.font-brand {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Logo Animation */
+@keyframes tool-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes slide-up-fade {
+  from { 
+    opacity: 0; 
+    transform: translateY(40px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes fade-in-scale {
+  from { 
+    opacity: 0; 
+    transform: scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+@keyframes underline-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Utility Classes */
+.animate-tool-pulse {
+  animation: tool-pulse 3s ease-in-out infinite;
+}
+
+.animate-slide-up-fade {
+  animation: slide-up-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Brand Button Styles */
+.btn-brand {
+  background: rgb(var(--brand-black));
+  color: rgb(var(--brand-white));
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-brand::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgb(var(--brand-primary));
+  transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+}
+
+.btn-brand:hover::before {
+  left: 0;
+}
+
+.btn-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn-brand span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-accent {
+  background: rgb(var(--brand-accent));
+  color: white;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-accent:hover {
+  background: rgb(var(--brand-accent-light));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid rgb(var(--brand-black));
+  color: rgb(var(--brand-black));
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-outline:hover {
+  background: rgb(var(--brand-black));
+  color: rgb(var(--brand-white));
+}
+
+/* Card Styles */
+.card-brand {
+  background: white;
+  border: 1px solid rgb(var(--brand-gray-200));
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-brand:hover {
+  border-color: rgb(var(--brand-black));
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Navigation */
+.nav-brand {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgb(var(--brand-gray-200));
+}
+
+/* Hero Section */
+.hero-brand {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--brand-gray-50)) 0%,
+    white 50%,
+    rgb(var(--brand-gray-100)) 100%
+  );
+}
+
+/* Section Headers */
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: rgb(var(--brand-accent));
+  border-radius: 2px;
+}
+
+/* Trust Indicators */
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgb(var(--brand-gray-100));
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.trust-badge svg {
+  color: rgb(var(--brand-success));
+}
+
+/* Form Styles */
+.input-brand {
+  background: white;
+  border: 2px solid rgb(var(--brand-gray-200));
+  transition: all 0.2s ease;
+}
+
+.input-brand:focus {
+  border-color: rgb(var(--brand-black));
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Quote/Review Cards */
+.quote-card {
+  background: white;
+  border-left: 4px solid rgb(var(--brand-accent));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Service Cards */
+.service-icon {
+  width: 64px;
+  height: 64px;
+  background: rgb(var(--brand-gray-100));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.service-icon:hover {
+  background: rgb(var(--brand-black));
+  color: white;
+}
+
+/* Gradient Text */
+.text-gradient {
+  background: linear-gradient(135deg, rgb(var(--brand-black)) 0%, rgb(var(--brand-primary)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .nav-brand {
+    background: white;
+  }
+}
+
+/* Scrollbar */
+.brand-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.brand-scroll::-webkit-scrollbar-track {
+  background: rgb(var(--brand-gray-100));
+}
+
+.brand-scroll::-webkit-scrollbar-thumb {
+  background: rgb(var(--brand-gray-300));
+  border-radius: 4px;
+}
+
+.brand-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--brand-gray-400));
+}
+
+/* Selection */
+::selection {
+  background: rgb(var(--brand-primary));
+  color: white;
+}
