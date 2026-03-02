@@ -48,7 +48,7 @@ function FAQItem({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ delay: index * 0.05 }}
       className="border-b border-gray-200 last:border-0"
     >
@@ -90,7 +90,7 @@ export function FAQSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-16"
         >
           <span className="inline-block text-brand-red font-semibold text-sm tracking-widest uppercase mb-4">
@@ -114,7 +114,7 @@ export function FAQSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           className="mt-12 text-center"
         >
           <p className="text-gray-600 mb-4">Still have questions? We&apos;re happy to help!</p>

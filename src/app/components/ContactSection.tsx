@@ -12,7 +12,7 @@ export function ContactSection() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <span className="inline-block text-brand-red font-semibold text-sm tracking-widest uppercase mb-4">
               Contact Us
@@ -76,7 +76,7 @@ export function ContactSection() {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <div className="bg-brand-gray rounded-2xl p-6 lg:p-8">
               <h3 className="text-xl font-bold text-brand-black mb-6">

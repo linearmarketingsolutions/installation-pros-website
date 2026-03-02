@@ -97,7 +97,7 @@ export function ServicesSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-16"
         >
           <span className="inline-block text-brand-red font-semibold text-sm tracking-widest uppercase mb-4">
@@ -120,7 +120,7 @@ export function ServicesSection() {
               key={service.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.05 }}
               className="group p-8 rounded-2xl border border-gray-200 bg-white hover:border-brand-red/30 hover:shadow-brand-glow transition-all duration-300 hover:-translate-y-1"
             >
@@ -161,7 +161,7 @@ export function ServicesSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           className="mt-16 text-center"
         >
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-8 bg-brand-gray rounded-2xl">

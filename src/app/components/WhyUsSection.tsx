@@ -50,7 +50,7 @@ export function WhyUsSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-16"
         >
           <span className="inline-block text-brand-red font-semibold text-sm tracking-widest uppercase mb-4">
@@ -72,7 +72,7 @@ export function WhyUsSection() {
               key={item.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.1 }}
               className="flex gap-6 p-8 rounded-2xl bg-brand-black/50 border border-white/10 hover:border-brand-red/30 transition-all"
             >
@@ -94,7 +94,7 @@ export function WhyUsSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           className="mt-12 text-center"
         >
           <p className="text-gray-400">

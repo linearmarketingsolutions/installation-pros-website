@@ -47,7 +47,7 @@ export function ServiceAreasSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-12"
         >
           <span className="inline-block text-brand-red font-semibold text-sm tracking-widest uppercase mb-4">
@@ -64,7 +64,7 @@ export function ServiceAreasSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto"
         >
           {cities.map((city, index) => (
@@ -72,7 +72,7 @@ export function ServiceAreasSection() {
               key={city}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.02 }}
               className="px-5 py-2.5 bg-brand-red rounded-full text-white font-semibold text-sm hover:bg-brand-red/90 hover:scale-105 transition-all cursor-default"
             >
@@ -84,7 +84,7 @@ export function ServiceAreasSection() {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           className="text-center text-gray-500 mt-10 text-sm"
         >
           Inland Empire • Orange County • Southern California
