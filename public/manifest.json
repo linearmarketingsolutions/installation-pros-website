@@ -1,0 +1,23 @@
+{
+  "name": "Installation Pros",
+  "short_name": "Installation Pros",
+  "description": "Family-owned appliance and plumbing fixture installation serving the Inland Empire, Orange County & Southern California. 5.0 stars, 180 Yelp reviews.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#CC0000",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

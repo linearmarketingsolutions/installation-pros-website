@@ -1,0 +1,21 @@
+<svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style><![CDATA[
+      @keyframes pulse-red {
+        0%, 100% { stroke: #CC0000; }
+        50% { stroke: #FF2222; }
+      }
+      @keyframes pulse-red-fill {
+        0%, 100% { fill: #CC0000; }
+        50% { fill: #FF2222; }
+      }
+      .red-pulse { animation: pulse-red 1.5s ease-in-out infinite; }
+      .red-pulse-fill { animation: pulse-red-fill 1.5s ease-in-out infinite; }
+    ]]></style>
+  </defs>
+  <rect width="48" height="48" fill="#0A0A0A"/>
+  <path class="red-pulse" d="M24 8L8 22V40H18V28H30V40H40V22L24 8Z" stroke="#CC0000" stroke-width="2" fill="none"/>
+  <path class="red-pulse" d="M16 26L20 30M20 26L16 30" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <path class="red-pulse" d="M28 26L32 30M32 26L28 30" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <circle class="red-pulse-fill" cx="24" cy="20" r="2" fill="#CC0000"/>
+</svg>

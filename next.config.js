@@ -1,7 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    turbo: {},
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+    ],
+  },
+  webpack: (config, { isServer }) => {
+    config.resolve.fallback = { fs: false, path: false, canvas: false };
+    return config;
   },
 };
 

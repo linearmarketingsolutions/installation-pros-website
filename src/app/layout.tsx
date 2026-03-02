@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./hvac-styles.css";
+import { Barlow_Condensed, Inter } from "next/font/google";
+import "./globals.css";
+import FaviconAnimator from "./components/FaviconAnimator";
+
+const barlowCondensed = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-barlow-condensed",
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -8,82 +15,92 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Installation Pros SoCal | HVAC Installation Rancho Cucamonga",
-  description: "Professional HVAC installation in Rancho Cucamonga & Southern California. Family-owned, 5-star rated AC & heating services. Licensed CAC #1041882. Free estimates!",
-  keywords: ["HVAC installation Rancho Cucamonga", "AC installation", "furnace installation", "air conditioning", "HVAC contractor", "Southern California"],
-  authors: [{ name: "Installation Pros SoCal" }],
-  creator: "Installation Pros SoCal",
-  publisher: "Installation Pros SoCal",
-  robots: "index, follow",
+  title: "Installation Pros | Appliance & Plumbing Installation — Rancho Cucamonga, CA",
+  description:
+    "Family-owned appliance and plumbing fixture installation serving the Inland Empire, Orange County & Southern California. 5.0 stars, 180 Yelp reviews. Call (909) 768-3650.",
+  keywords:
+    "appliance installation Rancho Cucamonga, dishwasher installation, water heater installation, range hood installation, plumbing fixture installation, Inland Empire, Orange County",
+  authors: [{ name: "Installation Pros" }],
+  creator: "Installation Pros",
+  publisher: "Installation Pros",
+  robots: { index: true, follow: true },
   openGraph: {
-    title: "Installation Pros SoCal | Expert HVAC Installation",
-    description: "Family-owned HVAC installation in Rancho Cucamonga. 5-star rated, licensed CAC #1041882. AC, heating, ductwork & more!",
-    type: "website",
+    title: "Installation Pros | Appliance & Plumbing Installation",
+    description:
+      "Flat-rate appliance & plumbing installation. 2-hour windows. Free haul-away. Serving SoCal since day one.",
+    url: "https://installationprossocal.com",
+    siteName: "Installation Pros",
     locale: "en_US",
-    siteName: "Installation Pros SoCal",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Installation Pros SoCal | HVAC Installation",
-    description: "Expert HVAC installation in Rancho Cucamonga. Family-owned, 5-star rated!",
+    title: "Installation Pros | Appliance & Plumbing Installation",
+    description: "5.0 stars. Flat-rate. 2-hour arrival windows. Serving SoCal.",
   },
   alternates: {
     canonical: "https://installationprossocal.com",
   },
-  verification: {
-    google: "your-google-verification-code",
+  manifest: "/manifest.json",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/apple-icon.png",
   },
 };
 
-// Local Business Schema
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "HVACBusiness",
-  name: "Installation Pros SoCal",
-  image: "https://installationprossocal.com/logo.jpg",
+  "@type": "LocalBusiness",
+  name: "Installation Pros",
+  telephone: "(909) 768-3650",
+  url: "https://installationprossocal.com",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Rancho Cucamonga",
     addressRegion: "CA",
-    addressCountry: "US",
+    postalCode: "91730",
   },
   geo: {
     "@type": "GeoCoordinates",
     latitude: 34.1064,
     longitude: -117.5931,
   },
-  url: "https://installationprossocal.com",
-  telephone: "+1-909-345-4360",
+  openingHours: "Mo-Fr 08:00-19:00",
   priceRange: "$$",
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "07:00",
-      closes: "18:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Saturday",
-      opens: "08:00",
-      closes: "16:00",
-    },
-  ],
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "5.0",
-    reviewCount: "53",
+    reviewCount: "180",
   },
+  areaServed: [
+    "Rancho Cucamonga",
+    "Ontario",
+    "Upland",
+    "Fontana",
+    "Riverside",
+    "Corona",
+    "Chino",
+    "Chino Hills",
+    "Diamond Bar",
+    "Anaheim",
+    "Orange",
+    "Irvine",
+    "San Bernardino",
+    "Palm Springs",
+    "Temecula",
+    "San Clemente",
+    "Huntington Beach",
+  ],
 };
 
-// Service Schema
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  serviceType: "HVAC Installation",
+  serviceType: "Appliance Installation",
   provider: {
-    "@type": "HVACBusiness",
-    name: "Installation Pros SoCal",
+    "@type": "LocalBusiness",
+    name: "Installation Pros",
   },
   areaServed: {
     "@type": "State",
@@ -91,88 +108,74 @@ const serviceSchema = {
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "HVAC Services",
+    name: "Installation Services",
     itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Air Conditioning Installation",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Furnace Installation",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Ductwork Installation",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Thermostat Installation",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "HVAC for Home Renovations",
-        },
-      },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Dishwasher Installation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Oven Installation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Refrigerator Installation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Toilet Installation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Faucet Installation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Water Heater Installation" } },
     ],
   },
 };
 
-// FAQ Schema
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
     {
       "@type": "Question",
-      name: "How much does AC installation cost in Rancho Cucamonga?",
+      name: "Do you install dishwashers if there's no existing cutout?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "AC installation costs vary based on home size, system type, and efficiency rating. On average, homeowners in Rancho Cucamonga can expect to invest between $4,000-$8,000 for a complete installation. We offer free estimates to give you an accurate quote for your specific needs.",
+        text: "Yes! Basic dishwasher installation starts at $205. Contact us for custom cutout situations.",
       },
     },
     {
       "@type": "Question",
-      name: "How long does HVAC installation take?",
+      name: "Do you haul away old appliances?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Most residential HVAC installations are completed in 1-2 days. However, larger homes, complex ductwork modifications, or full system replacements may take 3-5 days. We always provide a clear timeline during your estimate.",
+        text: "Yes, haul-away is free of charge (some exceptions for oversized appliances).",
       },
     },
     {
       "@type": "Question",
-      name: "Do you offer financing for HVAC installation?",
+      name: "What areas do you serve?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes! We partner with financing providers to offer flexible payment options for qualified homeowners. During your consultation, we can discuss financing plans that work with your budget.",
+        text: "We serve the Inland Empire, Orange County, and surrounding areas including Rancho Cucamonga, Ontario, Upland, Riverside, Corona, Diamond Bar, Chino Hills, and more.",
       },
     },
     {
       "@type": "Question",
-      name: "What areas do you serve in Southern California?",
+      name: "Do you offer discounts?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We proudly serve Rancho Cucamonga and surrounding areas including Ontario, Upland, Fontana, Chino, Chino Hills, Corona, and throughout the Inland Empire. Contact us to confirm service in your area.",
+        text: "Yes — 15% off for Military, Police, and Fire personnel.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What payment do you accept?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We accept credit cards and cryptocurrency.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Are you licensed?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — Yelp-verified licensed business.",
       },
     },
   ],
 };
 
-export default function HVACLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -192,23 +195,11 @@ export default function HVACLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
-        {/* Google Analytics */}
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'GA_MEASUREMENT_ID');
-            `,
-          }}
-        />
       </head>
-      <body className={`${inter.variable} font-sans antialiased bg-white text-slate-900`}>
+      <body
+        className={`${barlowCondensed.variable} ${inter.variable} font-body antialiased bg-white text-brand-black`}
+      >
+        <FaviconAnimator />
         {children}
       </body>
     </html>
