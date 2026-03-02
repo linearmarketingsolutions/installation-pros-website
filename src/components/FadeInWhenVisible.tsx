@@ -1,7 +1,7 @@
-\"use client\";
+"use client";
 
-import { motion, useAnimation, useInView } from \"framer-motion\";
-import { useEffect, useRef, type ReactNode } from \"react\";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { useEffect, useRef, type ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
@@ -17,7 +17,7 @@ export default function FadeInWhenVisible({
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
-    margin: \"0px 0px -80px 0px\",
+    margin: "0px 0px -80px 0px",
   });
   const controls = useAnimation();
 
@@ -32,7 +32,7 @@ export default function FadeInWhenVisible({
       ref={ref}
       animate={controls}
       initial={{ opacity: 0, y: 30 }}
-      transition={{ duration: 0.5, delay, ease: \"easeOut\" }}
+      transition={{ duration: 0.5, delay, ease: "easeOut" }}
       className={className}
     >
       {children}
