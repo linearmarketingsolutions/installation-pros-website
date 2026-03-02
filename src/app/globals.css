@@ -60,3 +60,18 @@ body {
   background: inherit;
   clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
 }
+
+/* Card stagger animation - immune to iOS Safari viewport resize */
+@keyframes fadeinup {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadein {
+  animation: fadeinup 0.5s ease-out forwards;
+}

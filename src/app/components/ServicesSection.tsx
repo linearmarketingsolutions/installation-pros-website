@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import FadeInWhenVisible from "@/components/FadeInWhenVisible";
 import {
   Refrigerator,
@@ -92,8 +92,30 @@ const plumbingServices = [
 const allServices = [...applianceServices, ...plumbingServices];
 
 export function ServicesSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0].isIntersecting) return;
+        const grid = el.querySelector("[data-cards-grid]");
+        if (!grid) return;
+        Array.from(grid.children).forEach((card, index) => {
+          card.classList.add("animate-fadein");
+          (card as HTMLElement).style.animationDelay = `${index * 0.08}s`;
+        });
+        observer.disconnect();
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="services" className="py-24 lg:py-32 bg-white">
+    <section ref={sectionRef} id="services" className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeInWhenVisible className="text-center mb-16">
           <span className="inline-block text-brand-red font-semibold text-sm tracking-widest uppercase mb-4">
@@ -110,12 +132,11 @@ export function ServicesSection() {
           </p>
         </FadeInWhenVisible>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {allServices.map((service, index) => (
-            <FadeInWhenVisible
+        <div data-cards-grid className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {allServices.map((service) => (
+            <div
               key={service.title}
-              delay={index * 0.05}
-              className="group p-8 rounded-2xl border border-gray-200 bg-white hover:border-brand-red/30 hover:shadow-brand-glow transition-all duration-300 hover:-translate-y-1"
+              className="opacity-0 group p-8 rounded-2xl border border-gray-200 bg-white hover:border-brand-red/30 hover:shadow-brand-glow transition-all duration-300 hover:-translate-y-1"
             >
               <div className="w-14 h-14 bg-brand-gray rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-red group-hover:text-white transition-all duration-300">
                 <service.icon className="w-7 h-7" />
@@ -147,7 +168,7 @@ export function ServicesSection() {
                 Get a Quote
                 <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
               </a>
-            </FadeInWhenVisible>
+            </div>
           ))}
         </div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import FadeInWhenVisible from "@/components/FadeInWhenVisible";
 import {
   Clock,
@@ -45,8 +45,30 @@ const differentiators = [
 ];
 
 export function WhyUsSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0].isIntersecting) return;
+        const grid = el.querySelector("[data-cards-grid]");
+        if (!grid) return;
+        Array.from(grid.children).forEach((card, index) => {
+          card.classList.add("animate-fadein");
+          (card as HTMLElement).style.animationDelay = `${index * 0.08}s`;
+        });
+        observer.disconnect();
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="why-us" className="py-24 lg:py-32 bg-brand-dark">
+    <section ref={sectionRef} id="why-us" className="py-24 lg:py-32 bg-brand-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeInWhenVisible className="text-center mb-16">
           <span className="inline-block text-brand-red font-semibold text-sm tracking-widest uppercase mb-4">
@@ -62,12 +84,11 @@ export function WhyUsSection() {
           </p>
         </FadeInWhenVisible>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {differentiators.map((item, index) => (
-            <FadeInWhenVisible
+        <div data-cards-grid className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {differentiators.map((item) => (
+            <div
               key={item.title}
-              delay={index * 0.1}
-              className="flex gap-6 p-8 rounded-2xl bg-brand-black/50 border border-white/10 hover:border-brand-red/30 transition-all"
+              className="opacity-0 flex gap-6 p-8 rounded-2xl bg-brand-black/50 border border-white/10 hover:border-brand-red/30 transition-all"
             >
               <div className="w-14 h-14 rounded-xl bg-brand-red/20 flex items-center justify-center flex-shrink-0">
                 <item.icon className="w-7 h-7 text-brand-red" />
@@ -80,7 +101,7 @@ export function WhyUsSection() {
                   {item.description}
                 </p>
               </div>
-            </FadeInWhenVisible>
+            </div>
           ))}
         </div>
 
