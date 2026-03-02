@@ -3,17 +3,14 @@
 import { motion } from "framer-motion";
 import { Phone, MapPin, Clock, Send } from "lucide-react";
 import { ServiceAreaMap } from "./ServiceAreaMap";
+import FadeInWhenVisible from "@/components/FadeInWhenVisible";
 
 export function ContactSection() {
   return (
     <section id="contact" className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 mb-16">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-          >
+          <FadeInWhenVisible className="">
             <span className="inline-block text-brand-red font-semibold text-sm tracking-widest uppercase mb-4">
               Contact Us
             </span>
@@ -71,13 +68,9 @@ export function ContactSection() {
                 Yelp-verified licensed business • Fully insured
               </p>
             </div>
-          </motion.div>
+          </FadeInWhenVisible>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-          >
+          <FadeInWhenVisible>
             <div className="bg-brand-gray rounded-2xl p-6 lg:p-8">
               <h3 className="text-xl font-bold text-brand-black mb-6">
                 Request a Quote
@@ -105,7 +98,7 @@ export function ContactSection() {
               </div>
             </div>
 
-          </motion.div>
+          </FadeInWhenVisible>
         </div>
 
         <ServiceAreaMap />

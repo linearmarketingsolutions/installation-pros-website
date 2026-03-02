@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import FadeInWhenVisible from "@/components/FadeInWhenVisible";
 
 const cities = [
   "Rancho Cucamonga",
@@ -44,12 +45,7 @@ export function ServiceAreasSection() {
       />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          className="text-center mb-12"
-        >
+        <FadeInWhenVisible className="text-center mb-12">
           <span className="inline-block text-brand-red font-semibold text-sm tracking-widest uppercase mb-4">
             Service Areas
           </span>
@@ -59,36 +55,23 @@ export function ServiceAreasSection() {
           <p className="text-xl text-gray-400">
             Serving Palm Springs to Huntington Beach
           </p>
-        </motion.div>
+        </FadeInWhenVisible>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto"
-        >
+        <FadeInWhenVisible className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
           {cities.map((city, index) => (
-            <motion.span
+            <FadeInWhenVisible
               key={city}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: index * 0.02 }}
+              delay={index * 0.02}
               className="px-5 py-2.5 bg-brand-red rounded-full text-white font-semibold text-sm hover:bg-brand-red/90 hover:scale-105 transition-all cursor-default"
             >
               {city}
-            </motion.span>
+            </FadeInWhenVisible>
           ))}
-        </motion.div>
+        </FadeInWhenVisible>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          className="text-center text-gray-500 mt-10 text-sm"
-        >
-          Inland Empire • Orange County • Southern California
-        </motion.p>
+        <FadeInWhenVisible className="text-center text-gray-500 mt-10 text-sm">
+          <p>Inland Empire • Orange County • Southern California</p>
+        </FadeInWhenVisible>
       </div>
     </section>
   );

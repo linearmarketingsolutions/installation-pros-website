@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import FadeInWhenVisible from "@/components/FadeInWhenVisible";
 import {
   Refrigerator,
   Flame,
@@ -94,12 +95,7 @@ export function ServicesSection() {
   return (
     <section id="services" className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          className="text-center mb-16"
-        >
+        <FadeInWhenVisible className="text-center mb-16">
           <span className="inline-block text-brand-red font-semibold text-sm tracking-widest uppercase mb-4">
             Our Services
           </span>
@@ -112,16 +108,13 @@ export function ServicesSection() {
             We install — we don&apos;t repair. From dishwashers to toilets,
             we get it done right the first time.
           </p>
-        </motion.div>
+        </FadeInWhenVisible>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {allServices.map((service, index) => (
-            <motion.div
+            <FadeInWhenVisible
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: index * 0.05 }}
+              delay={index * 0.05}
               className="group p-8 rounded-2xl border border-gray-200 bg-white hover:border-brand-red/30 hover:shadow-brand-glow transition-all duration-300 hover:-translate-y-1"
             >
               <div className="w-14 h-14 bg-brand-gray rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-red group-hover:text-white transition-all duration-300">
@@ -154,16 +147,11 @@ export function ServicesSection() {
                 Get a Quote
                 <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
               </a>
-            </motion.div>
+            </FadeInWhenVisible>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          className="mt-16 text-center"
-        >
+        <FadeInWhenVisible className="mt-16 text-center">
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-8 bg-brand-gray rounded-2xl">
             <div>
               <h3 className="text-2xl font-bold text-brand-black mb-2">
@@ -180,7 +168,7 @@ export function ServicesSection() {
               Call for Free Quote
             </a>
           </div>
-        </motion.div>
+        </FadeInWhenVisible>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import FadeInWhenVisible from "@/components/FadeInWhenVisible";
 
 export function AboutSection() {
   return (
@@ -9,12 +10,7 @@ export function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Team Photo - from Yelp */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            className="relative"
-          >
+          <FadeInWhenVisible className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full">
               <Image
                 src="/Installpros-New-Team.png"
@@ -29,13 +25,9 @@ export function AboutSection() {
                 <span className="text-sm font-normal">180 Yelp Reviews</span>
               </div>
             </div>
-          </motion.div>
+          </FadeInWhenVisible>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-          >
+          <FadeInWhenVisible>
             <span className="inline-block text-brand-red font-semibold text-sm tracking-widest uppercase mb-4">
               About Us
             </span>
@@ -78,7 +70,7 @@ export function AboutSection() {
                 Read Our Yelp Reviews
               </a>
             </div>
-          </motion.div>
+          </FadeInWhenVisible>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import FadeInWhenVisible from "@/components/FadeInWhenVisible";
 
 const faqs = [
   {
@@ -45,11 +46,8 @@ function FAQItem({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ delay: index * 0.05 }}
+    <FadeInWhenVisible
+      delay={index * 0.05}
       className="border-b border-gray-200 last:border-0"
     >
       <button
@@ -79,7 +77,7 @@ function FAQItem({
       >
         <p className="pb-6 text-gray-600 leading-relaxed">{faq.answer}</p>
       </motion.div>
-    </motion.div>
+    </FadeInWhenVisible>
   );
 }
 
@@ -87,12 +85,7 @@ export function FAQSection() {
   return (
     <section id="faq" className="py-24 lg:py-32 bg-brand-gray">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          className="text-center mb-16"
-        >
+        <FadeInWhenVisible className="text-center mb-16">
           <span className="inline-block text-brand-red font-semibold text-sm tracking-widest uppercase mb-4">
             FAQ
           </span>
@@ -103,7 +96,7 @@ export function FAQSection() {
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Got questions? We&apos;ve got answers.
           </p>
-        </motion.div>
+        </FadeInWhenVisible>
 
         <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-100">
           {faqs.map((faq, index) => (
@@ -111,12 +104,7 @@ export function FAQSection() {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          className="mt-12 text-center"
-        >
+        <FadeInWhenVisible className="mt-12 text-center">
           <p className="text-gray-600 mb-4">Still have questions? We&apos;re happy to help!</p>
           <a
             href="tel:9097683650"
@@ -124,7 +112,7 @@ export function FAQSection() {
           >
             Call (909) 768-3650
           </a>
-        </motion.div>
+        </FadeInWhenVisible>
       </div>
     </section>
   );

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Star, ExternalLink } from "lucide-react";
 import { reviews } from "@/lib/reviews";
+import FadeInWhenVisible from "@/components/FadeInWhenVisible";
 
 const YELP_URL = "https://www.yelp.com/biz/installation-pros-rancho-cucamonga-4";
 
@@ -48,12 +49,7 @@ export function ReviewsSection() {
   return (
     <section id="reviews" className="py-24 lg:py-32 bg-brand-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          className="text-center"
-        >
+        <FadeInWhenVisible className="text-center">
           <div className="inline-flex items-center gap-2 bg-brand-red/20 text-white rounded-full px-4 py-2 mb-4 border border-brand-red/40">
             <Star className="w-5 h-5 fill-brand-red text-brand-red" />
             <span className="font-semibold">5.0 Rating on Yelp</span>
@@ -74,7 +70,7 @@ export function ReviewsSection() {
             View all reviews on Yelp
             <ExternalLink className="w-4 h-4" />
           </a>
-        </motion.div>
+        </FadeInWhenVisible>
       </div>
 
       {/* Marquee - auto-scrolling, hover to pause */}
